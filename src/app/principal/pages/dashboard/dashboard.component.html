@@ -1,0 +1,130 @@
+<app-menu></app-menu>
+
+<div class="container">
+<div class="row mt-5">
+    <div class="col-xs-12 col-8">
+    
+      <div class="row">
+        <!-- Clima -->
+        <div class="col-xs-12 col-lg-6 mt-3">
+            <div class="card dash" style="width: 20rem; height: 8rem">
+                <div class="card-body">
+                  <h5 class="card-title">Clima</h5>
+                  <hr>
+                  <div *ngIf="climaPais; else clima"> 
+                    <h5 class="card-text">{{climaPais}}°C {{condicion}}</h5>
+                  </div>
+                  <ng-template #clima>
+                    <p class="card-text">Clima del país seleccionado</p>
+                  </ng-template>
+                </div>
+              </div>
+        </div>
+
+        <!-- País seleccionado -->
+        <div class="col-xs-12 col-lg-6 mt-3">
+            <div class="card dash" style="width: 20rem; height: 8rem">
+                <div class="card-body">
+                  <h5 class="card-title">País seleccionado</h5>
+                  <hr>
+                  <div *ngIf="nombre; else vacio">              
+                    <h3 class="card-text"><img class="small-flag" [src]="flag" width="35" height="30"> {{nombre}}</h3>                    
+                  </div>
+                  <ng-template #vacio>
+                    <p class="card-text">Bandera y nombre del pais</p>
+                  </ng-template>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Tareas Pendientes -->
+        <div class="col-xs-12 col-lg-6 mt-3">
+            <div class="card dash" style="width: 20rem; height: 17rem">
+                <div class="card-body">
+                  <h5 class="card-title">Tareas pendientes</h5>
+                  <hr>
+                  <ul class="list-group">
+                    <div *ngFor="let item of listaTareas">
+                      <li class="list-group-item" 
+                          *ngIf="item.estado">
+                        <p >{{item.tarea}}</p>                         
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+        </div>
+        <!-- Hora -->
+        <div class="col-xs-12 col-lg-6 mt-3">
+            <div class="card dash" style="width: 20rem; height: 17rem">
+                <div class="card-body">
+                  <h5 class="card-title">Hora</h5>
+                  <hr>
+                  <div *ngIf="hora; else sinHora"> 
+                    <h3 class="card-text">{{hora}}</h3>
+                  </div>
+                  <ng-template #sinHora>
+                    <p class="card-text">Hora actual del país</p>
+                  </ng-template>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Tarea completadas -->
+        <div class="col-xs-12 col-lg-6 mt-3">
+            <div class="card dash" style="width: 20rem; height: 17rem">
+                <div class="card-body">
+                  <h5 class="card-title">Tareas completadas</h5>
+                  <hr>
+                  <ul class="list-group">
+                    <div *ngFor="let item of listaTareas">
+                      <li class="list-group-item" 
+                          *ngIf="!item.estado">
+                        <p >{{item.tarea}}</p>                         
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+        </div>
+        <!-- Zonas horarias -->
+        <div class="col-xs-12 col-lg-6 mt-3">
+            <div class="card dash" style="width: 20rem; height: 17rem">
+                <div class="card-body">
+                  <h5 class="card-title">Zona Horaria que tiene el país</h5>
+                  <hr>
+                  <div *ngIf="nombre; else zona"> 
+                    <h3 class="card-text">{{zonaHoraria}}</h3>
+                  </div>
+                  <ng-template #zona>
+                    <p class="card-text">Zona horaria del país</p>
+                  </ng-template>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mt-3">
+        <!-- Países disponibles -->
+        <div class="card dash" style="width: 18rem; height: 44rem;">
+            <div class="card-body">
+              <h5 class="card-title">Paises disponibles</h5>
+              <hr>
+              <ul class="list-group">
+                <div *ngFor="let pais of paises">
+                  <li class="list-group-item">
+                      <img class="small-flag" [src]="pais.flags.png" width="35" height="30">
+                      <a  (click)="buscarPais(pais.cca2)">{{pais.name.common}}</a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>

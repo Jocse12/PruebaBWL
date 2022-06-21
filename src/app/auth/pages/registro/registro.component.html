@@ -1,0 +1,79 @@
+
+<div class="position-absolute top-50 start-50 translate-middle">
+    <div class="card registro" style="width: 30rem;">
+        <div class="card-body">
+            <h2 class="card-title">Crear cuenta</h2>
+            <hr>
+
+            <form [formGroup]="registroFormulario" autocomplete="off" (ngSubmit)="submitFormulario()">
+                
+                <div class="row">
+                            <!-- Campo email -->
+                           <div class="col-12 form-floating mb-3">
+                                <input type="email" 
+                                       class="form-control" 
+                                       formControlName="email"
+                                       placeholder="name@example.com">
+                                <label for="floatingInput">Correo eléctronico</label>
+                                <span class="form-text text-danger"
+                                     *ngIf="campoNoValido('email')">
+                                    El correo ingresado no es valido y/o es un campo obligatorio.
+                                </span>
+                            </div>
+
+                             <!-- Campo contraseña -->
+                            <div class="col-6 form-floating mb-3">
+                                <input type="password" 
+                                       class="form-control" 
+                                       formControlName="contraseña"
+                                       placeholder="********">
+                                <label for="floatingInput">Contraseña</label>
+                                <span class="form-text text-danger"
+                                     *ngIf="campoNoValido('contraseña')">
+                                     La contraseña debe ser mayor a 6 caracteres y/o es un campo obligatorio.
+                                </span>
+                            </div>
+
+                            <!-- Campo Confirmar contraseña -->
+                            <div class="col-6 form-floating mb-3">
+                                <input type="password" 
+                                       class="form-control" 
+                                       formControlName="confirmContraseña"
+                                       placeholder="********">
+                                <label for="floatingInput">Confirmar contraseña</label>
+                                <span class="form-text text-danger"
+                                      *ngIf="campoNoValido('confirmContraseña')">
+                                     Las contraseñas deben ser iguales.
+                                </span>
+                            </div>
+
+                            <div class="col-12 form-floating mb-3">
+                                <input type="text" 
+                                       class="form-control" 
+                                       formControlName="nombre"
+                                       placeholder="José Luis Sánchez Jiménez">
+                                <label for="floatingInput">Nombre completo</label>
+                                <span class="form-text text-danger"
+                                      *ngIf="campoNoValido('nombre')">
+                                    Falta llenar este campo.
+                                </span>
+                            </div>
+                        
+                </div>
+
+                <!-- Boton Registro -->
+                <div class="row">
+                    <div class="col d-grid gap-2">
+                        <button type="submit"
+                                class="btn btn-primary"
+                                [disabled]="registroFormulario.invalid">
+                            Registrarme
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

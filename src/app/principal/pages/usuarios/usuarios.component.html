@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+
+<div class="container">
+
+    <div class="card mt-3 tabla">
+        <h5 class="card-header">Lista de usuarios del sistema</h5>
+        <div class="card-body">
+
+            <!-- Tabla que muestra los usuarios -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Correo eléctronico</th>
+                        <th scope="col">Fehca de registro</th>
+                        <th scope="col">Último login</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr *ngFor="let usuario of usuarios">
+                        <th>{{usuario.nombre}}</th>
+                        <th>{{usuario.email}}</th>
+                        <th>{{usuario.fechaRegistro}}</th>
+                        <th>{{usuario.ultimaSesion}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+      
+
+</div>
