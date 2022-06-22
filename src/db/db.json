@@ -1,0 +1,36 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "email": "joseluis@gmail.com",
+      "contraseña": "joselsj",
+      "nombre": "Jose Luis Sanchez J",
+      "fechaRegistro": "20/6/2022",
+      "ultimaSesion": "21/6/2022 18:40"
+    },
+    {
+      "id": 2,
+      "email": "luis@gmail.com",
+      "contraseña": "1234567",
+      "nombre": "Luis Jimenez",
+      "fechaRegistro": "20/6/2022",
+      "ultimaSesion": "21/6/2022 17:4"
+    },
+    {
+      "id": 3,
+      "email": "leonard@gmail.com",
+      "contraseña": "1234567",
+      "nombre": "Leonardo Pacheco",
+      "fechaRegistro": "21/6/2022",
+      "ultimaSesion": "21/6/2022 18:45"
+    },
+    {
+      "id": 4,
+      "email": "miguel@gmail.com",
+      "contraseña": "1234567",
+      "nombre": "Miguel Angel Tmnt",
+      "fechaRegistro": "21/6/2022",
+      "ultimaSesion": "21/6/2022 18:40"
+    }
+  ]
+}
